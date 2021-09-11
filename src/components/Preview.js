@@ -1,27 +1,12 @@
 import React from "react";
 
-/**
- * We need to import fetchQueryResultsFromURL since we will sometimes have urls in info.prev and info.next
- * which are query urls.
- */
 import { fetchQueryResultsFromURL } from "../api";
 
 const Preview = (props) => {
-  /**
-   * Destructure setSearchResults, setFeaturedResult, and setIsLoading from props
-   * and also destructure info and records from props.searchResults
-   
-   * You need info, records, setSearchResults, setFeaturedResult, and setIsLoading as available constants
-   */
   const { setSearchResults, setFeaturedResult, setIsLoading } = props;
 
   const { info, records } = props.searchResults;
 
-  /**
-   * Don't touch this function, it's good to go.
-   *
-   * It has to be defined inside the Preview component to have access to setIsLoading, setSearchResults, etc...
-   */
   async function fetchPage(pageUrl) {
     setIsLoading(true);
 

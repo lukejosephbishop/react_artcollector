@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-/**
- * Don't touch these imports!
- */
 import {
   fetchAllCenturies,
   fetchAllClassifications,
@@ -10,7 +7,6 @@ import {
 } from "../api";
 
 const Search = (props) => {
-  // Make sure to destructure setIsLoading and setSearchResults from the props
   const { setIsLoading, setSearchResults } = props;
   const [centuryList, setCenturyList] = useState([]);
   const [classificationList, setClassificationList] = useState([]);
@@ -30,23 +26,7 @@ const Search = (props) => {
       console.log(error);
     }
   }, []);
-  
-  /**
-   * This is a form element, so we need to bind an onSubmit handler to it which:
-   *
-   * calls event.preventDefault()
-   * calls setIsLoading, set it to true
-   *
-   * then, in a try/catch/finally block:
-   *
-   * try to:
-   * - get the results from fetchQueryResults({ century, classification, queryString })
-   * - pass them to setSearchResults
-   *
-   * catch: error to console.error
-   *
-   * finally: call setIsLoading, set it to false
-   */
+
   return (
     <form
       id="search"

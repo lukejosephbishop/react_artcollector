@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 // These imports won't work until you fix ./components/index.js
-import {
-  Feature,
-  Loading,
-  Preview,
-  Search,
-  Title,
-} from "./components";
+import { Feature, Loading, Preview, Search, Title } from "./components";
 
 const App = () => {
   /**
@@ -27,31 +21,20 @@ const App = () => {
     <div className="app">
       <Title />
       <Search setIsLoading={setIsLoading} setSearchResults={setSearchResults} />
-      {/* (trigger <Loading /> on search start/end, and transfer results to preview) */}
-      {/* <Search /> */}
       <Preview
         searchResults={searchResults}
         setIsLoading={setIsLoading}
         setSearchResults={setSearchResults}
         setFeaturedResult={setFeaturedResult}
       />{" "}
-      {/* needs props for searchResults, setIsLoading and setSearchResults (clicking
-      prev/next buttons), and setFeaturedResult (clicking a preview) */}
-      {/* <Preview /> */}
-      {/* <Feature /> needs props for featuredResult, as well as setIsLoading and
-      setSearchResults (clicking on searchable properties) */}
-      <Feature featuredResult={featuredResult}  setIsLoading={setIsLoading} setSearchResults={setSearchResults}/>
-      {isLoading === true ? <Loading />: null}
-      {/* is static, but should only render when isLoading is true */}
-      {/* <Loading /> use a ternary and render null if isLoading is false */}
-     
+      <Feature
+        featuredResult={featuredResult}
+        setIsLoading={setIsLoading}
+        setSearchResults={setSearchResults}
+      />
+      {isLoading === true ? <Loading /> : null}
     </div>
   );
 };
-
-/**
- * Boostrap the <App /> component into the '#app' element in the DOM,
- * using ReactDOM.render();
- */
 
 ReactDOM.render(<App />, document.getElementById("app"));
